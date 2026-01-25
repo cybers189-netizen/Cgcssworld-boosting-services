@@ -110,7 +110,9 @@
         <h1 id="site-title" class="font-display text-2xl md:text-3xl font-black text-white tracking-tight">Cgcssworld</h1>
         <p class="text-red-400 font-semibold text-xs">#OT #BOOSTING</p>
        </div>
-      </div><!-- Profile Button on Right --> <button onclick="toggleProfileModal()" class="flex items-center gap-3 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 px-4 md:px-6 py-2 md:py-3 rounded-full text-white font-bold transition-all duration-300 hover:scale-105 shadow-lg flex-shrink-0"> <img id="profilePicDisplay" src="https://via.placeholder.com/40/ff4444/ffffff?text=👤" alt="Profile" class="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-white object-cover" loading="lazy"> <span id="displayName" class="hidden md:inline">My Profile</span> </button>
+      </div><!-- Currency Selector & Profile Button on Right -->
+      <div class="flex items-center gap-2 md:gap-3"><!-- Currency Dropdown --> <select id="currencySelector" onchange="changeCurrency()" class="bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold px-3 md:px-4 py-2 md:py-3 rounded-full cursor-pointer transition-all duration-300 hover:scale-105 shadow-lg border-2 border-white/20 focus:outline-none"> <option value="PHP">₱ PHP</option> <option value="USD">$ USD</option> <option value="EUR">€ EUR</option> <option value="GBP">£ GBP</option> <option value="JPY">¥ JPY</option> <option value="CNY">¥ CNY</option> <option value="KRW">₩ KRW</option> <option value="AUD">$ AUD</option> <option value="CAD">$ CAD</option> <option value="SGD">$ SGD</option> <option value="MYR">RM MYR</option> <option value="THB">฿ THB</option> <option value="IDR">Rp IDR</option> <option value="VND">₫ VND</option> <option value="INR">₹ INR</option> <option value="AED">د.إ AED</option> <option value="SAR">﷼ SAR</option> <option value="BRL">R$ BRL</option> <option value="MXN">$ MXN</option> <option value="RUB">₽ RUB</option> </select> <!-- Profile Button --> <button onclick="toggleProfileModal()" class="flex items-center gap-3 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 px-4 md:px-6 py-2 md:py-3 rounded-full text-white font-bold transition-all duration-300 hover:scale-105 shadow-lg flex-shrink-0"> <img id="profilePicDisplay" src="https://via.placeholder.com/40/ff4444/ffffff?text=👤" alt="Profile" class="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-white object-cover" loading="lazy"> <span id="displayName" class="hidden md:inline">My Profile</span> </button>
+      </div>
      </div><!-- Mobile Title (shown below logo on small screens) -->
      <div class="md:hidden text-center mb-6">
       <h1 class="font-display text-3xl font-black text-white tracking-tight">Cgcssworld</h1>
@@ -134,15 +136,15 @@
        <div class="grid md:grid-cols-3 gap-4">
         <div class="price-item bg-black/60 rounded-xl p-4 border border-red-700/30">
          <p class="text-white font-bold text-lg mb-1">1k Followers</p>
-         <p class="text-orange-400 font-black text-2xl">20₱</p>
+         <p class="text-orange-400 font-black text-2xl price-amount">20₱</p>
         </div>
         <div class="price-item bg-black/60 rounded-xl p-4 border border-red-700/30">
          <p class="text-white font-bold text-lg mb-1">1k Reacts</p>
-         <p class="text-orange-400 font-black text-2xl">20₱</p>
+         <p class="text-orange-400 font-black text-2xl price-amount">20₱</p>
         </div>
         <div class="price-item bg-black/60 rounded-xl p-4 border border-red-700/30">
          <p class="text-white font-bold text-lg mb-1">1k Views</p>
-         <p class="text-orange-400 font-black text-2xl">30₱</p>
+         <p class="text-orange-400 font-black text-2xl price-amount">30₱</p>
         </div>
        </div>
        <div class="bg-black/60 rounded-xl p-4 border border-red-700/30">
@@ -150,43 +152,43 @@
         <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
          <div class="text-center">
           <p class="text-gray-300 text-sm">100</p>
-          <p class="text-orange-400 font-bold">15₱</p>
+          <p class="text-orange-400 font-bold price-amount">15₱</p>
          </div>
          <div class="text-center">
           <p class="text-gray-300 text-sm">200</p>
-          <p class="text-orange-400 font-bold">20₱</p>
+          <p class="text-orange-400 font-bold price-amount">20₱</p>
          </div>
          <div class="text-center">
           <p class="text-gray-300 text-sm">300</p>
-          <p class="text-orange-400 font-bold">30₱</p>
+          <p class="text-orange-400 font-bold price-amount">30₱</p>
          </div>
          <div class="text-center">
           <p class="text-gray-300 text-sm">400</p>
-          <p class="text-orange-400 font-bold">40₱</p>
+          <p class="text-orange-400 font-bold price-amount">40₱</p>
          </div>
          <div class="text-center">
           <p class="text-gray-300 text-sm">500</p>
-          <p class="text-orange-400 font-bold">50₱</p>
+          <p class="text-orange-400 font-bold price-amount">50₱</p>
          </div>
          <div class="text-center">
           <p class="text-gray-300 text-sm">600</p>
-          <p class="text-orange-400 font-bold">60₱</p>
+          <p class="text-orange-400 font-bold price-amount">60₱</p>
          </div>
          <div class="text-center">
           <p class="text-gray-300 text-sm">700</p>
-          <p class="text-orange-400 font-bold">70₱</p>
+          <p class="text-orange-400 font-bold price-amount">70₱</p>
          </div>
          <div class="text-center">
           <p class="text-gray-300 text-sm">800</p>
-          <p class="text-orange-400 font-bold">80₱</p>
+          <p class="text-orange-400 font-bold price-amount">80₱</p>
          </div>
          <div class="text-center">
           <p class="text-gray-300 text-sm">900</p>
-          <p class="text-orange-400 font-bold">90₱</p>
+          <p class="text-orange-400 font-bold price-amount">90₱</p>
          </div>
          <div class="text-center">
           <p class="text-gray-300 text-sm">1000</p>
-          <p class="text-orange-400 font-bold">100₱</p>
+          <p class="text-orange-400 font-bold price-amount">100₱</p>
          </div>
         </div>
        </div>
@@ -203,13 +205,13 @@
       <div class="space-y-4">
        <div class="price-item bg-black/60 rounded-xl p-4 border border-red-700/30 max-w-md">
         <p class="text-white font-bold text-lg mb-1">1k Likes</p>
-        <p class="text-orange-400 font-black text-2xl">30₱</p>
+        <p class="text-orange-400 font-black text-2xl price-amount">30₱</p>
        </div>
        <div class="bg-black/60 rounded-xl p-4 border border-red-700/30 max-w-md">
         <p class="text-white font-bold text-lg mb-3">Views: ⬇⬇⬇</p>
         <div class="text-center">
          <p class="text-gray-300 text-sm mb-1">100K</p>
-         <p class="text-orange-400 font-bold text-xl">90₱</p>
+         <p class="text-orange-400 font-bold text-xl price-amount">90₱</p>
         </div>
        </div>
       </div>
@@ -233,7 +235,7 @@
        </div>
        <div class="price-item bg-black/60 rounded-xl p-4 border border-red-700/30">
         <p class="text-white font-bold text-lg mb-1">1k Views</p>
-        <p class="text-orange-400 font-black text-2xl">30₱</p>
+        <p class="text-orange-400 font-black text-2xl">30���</p>
        </div>
       </div>
      </section><!-- All Platforms Section -->
@@ -356,6 +358,116 @@
    </div>
   </div>
   <script>
+    // Currency conversion rates (based on PHP)
+    const exchangeRates = {
+      PHP: 1,
+      USD: 0.018,   // US Dollar
+      EUR: 0.016,   // Euro
+      GBP: 0.014,   // British Pound
+      JPY: 2.75,    // Japanese Yen
+      CNY: 0.13,    // Chinese Yuan
+      KRW: 24.5,    // South Korean Won
+      AUD: 0.028,   // Australian Dollar
+      CAD: 0.025,   // Canadian Dollar
+      SGD: 0.024,   // Singapore Dollar
+      MYR: 0.08,    // Malaysian Ringgit
+      THB: 0.62,    // Thai Baht
+      IDR: 288,     // Indonesian Rupiah
+      VND: 455,     // Vietnamese Dong
+      INR: 1.52,    // Indian Rupee
+      AED: 0.066,   // UAE Dirham
+      SAR: 0.068,   // Saudi Riyal
+      BRL: 0.11,    // Brazilian Real
+      MXN: 0.36,    // Mexican Peso
+      RUB: 1.82     // Russian Ruble
+    };
+    
+    const currencySymbols = {
+      PHP: '₱',
+      USD: '$',
+      EUR: '€',
+      GBP: '£',
+      JPY: '¥',
+      CNY: '¥',
+      KRW: '₩',
+      AUD: '$',
+      CAD: '$',
+      SGD: '$',
+      MYR: 'RM',
+      THB: '฿',
+      IDR: 'Rp',
+      VND: '₫',
+      INR: '₹',
+      AED: 'د.إ',
+      SAR: '﷼',
+      BRL: 'R$',
+      MXN: '$',
+      RUB: '₽'
+    };
+    
+    let currentCurrency = 'PHP';
+    
+    // Original prices in PHP
+    const originalPrices = {};
+    
+    function changeCurrency() {
+      const selectedCurrency = document.getElementById('currencySelector').value;
+      currentCurrency = selectedCurrency;
+      
+      // Save preference
+      localStorage.setItem('preferredCurrency', selectedCurrency);
+      
+      // Update all prices on the page
+      updateAllPrices();
+    }
+    
+    function updateAllPrices() {
+      const priceElements = document.querySelectorAll('.price-amount');
+      
+      priceElements.forEach(element => {
+        const priceId = element.getAttribute('data-price-id');
+        const originalPrice = parseFloat(originalPrices[priceId]);
+        
+        if (!isNaN(originalPrice)) {
+          const convertedPrice = originalPrice * exchangeRates[currentCurrency];
+          const symbol = currencySymbols[currentCurrency];
+          
+          // Format based on currency (some currencies don't use decimals)
+          let formattedPrice;
+          if (currentCurrency === 'PHP' || currentCurrency === 'JPY' || currentCurrency === 'KRW' || currentCurrency === 'IDR' || currentCurrency === 'VND') {
+            // No decimals for these currencies
+            formattedPrice = Math.round(convertedPrice).toLocaleString();
+          } else {
+            // 2 decimals for others
+            formattedPrice = convertedPrice.toFixed(2);
+          }
+          
+          element.textContent = `${formattedPrice}${symbol}`;
+        }
+      });
+    }
+    
+    function initializePrices() {
+      const priceElements = document.querySelectorAll('.price-amount');
+      
+      priceElements.forEach((element, index) => {
+        const priceId = `price-${index}`;
+        element.setAttribute('data-price-id', priceId);
+        
+        // Extract original PHP price from text content
+        const priceText = element.textContent.replace(/[^\d]/g, '');
+        originalPrices[priceId] = parseFloat(priceText);
+      });
+      
+      // Load saved currency preference
+      const savedCurrency = localStorage.getItem('preferredCurrency');
+      if (savedCurrency) {
+        document.getElementById('currencySelector').value = savedCurrency;
+        currentCurrency = savedCurrency;
+        updateAllPrices();
+      }
+    }
+    
     // Prevent image theft - disable right-click and drag
     document.addEventListener('contextmenu', function(e) {
       if (e.target.tagName === 'IMG') {
@@ -373,6 +485,9 @@
     
     // FAQ Toggle Functionality
     document.addEventListener('DOMContentLoaded', function() {
+      // Initialize prices
+      initializePrices();
+      
       const faqItems = document.querySelectorAll('.faq-item');
       
       faqItems.forEach(item => {
@@ -459,6 +574,6 @@
       }
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c36538392514559',t:'MTc2OTMyODk2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-                                                                                        </html>
-         
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c36d93ac64b4559',t:'MTc2OTMzNDQ0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ </html>
+ 
