@@ -93,7 +93,74 @@
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
  </head>
- <body class="h-full font-body">
+ <body class="h-full font-body"><!-- Welcome Splash Screen -->
+  <div id="welcomeSplash" class="fixed inset-0 z-[100] flex items-center justify-center bg-black">
+   <div class="text-center">
+    <div class="mb-8 float-animation"><img src="https://i.postimg.cc/K8Lhmcfn/Make_an_logo_for_boosting_service_for_social_media_named_Cgcssworld_transpa_20260125_131335_0000.jpg" alt="Cgcssworld" class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full border-4 border-red-600 shadow-2xl" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ff4444, #ff8800)'; this.alt='Cgcssworld';">
+    </div>
+    <h1 class="font-display text-4xl md:text-6xl font-black text-white mb-4 tracking-tight">Welcome to<br><span class="gradient-bg bg-clip-text text-transparent">Cgcssworld</span></h1>
+    <p class="text-gray-400 text-lg mb-8">Premium Social Media Boosting Services</p><!-- Loading Bar -->
+    <div class="max-w-md mx-auto px-8">
+     <div class="bg-gray-800 rounded-full h-3 overflow-hidden mb-4">
+      <div id="loadingBar" class="gradient-bg h-full rounded-full transition-all duration-300" style="width: 0%"></div>
+     </div>
+     <p id="loadingText" class="text-red-400 font-semibold text-sm">Loading... 0%</p>
+    </div>
+   </div>
+  </div><!-- Country Selector Modal -->
+  <div id="countryModal" class="hidden fixed inset-0 z-[99] flex items-center justify-center bg-black/95 backdrop-blur-sm p-4">
+   <div class="bg-gradient-to-br from-gray-900 to-black border-2 border-red-600/50 rounded-3xl max-w-lg w-full p-8 slide-up shadow-2xl">
+    <div class="text-center mb-6">
+     <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-red-600 to-orange-600 flex items-center justify-center">
+      <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+     </div>
+     <h2 class="font-display text-3xl font-black text-white mb-2">Select Your Region</h2>
+     <p class="text-gray-400 text-sm">Choose your country to continue</p>
+    </div>
+    <form onsubmit="submitCountry(event)" class="space-y-4"><select id="countrySelect" required class="w-full bg-black/60 border-2 border-red-700/50 rounded-xl px-4 py-4 text-white font-semibold focus:outline-none focus:border-red-600 transition-colors cursor-pointer"> <option value="">-- Select Country --</option> <option value="PH">Philippines</option> <option value="US">United States</option> <option value="GB">United Kingdom</option> <option value="CA">Canada</option> <option value="AU">Australia</option> <option value="SG">Singapore</option> <option value="MY">Malaysia</option> <option value="TH">Thailand</option> <option value="ID">Indonesia</option> <option value="VN">Vietnam</option> <option value="IN">India</option> <option value="JP">Japan</option> <option value="KR">South Korea</option> <option value="CN">China</option> <option value="AE">UAE</option> <option value="SA">Saudi Arabia</option> <option value="BR">Brazil</option> <option value="MX">Mexico</option> <option value="DE">Germany</option> <option value="FR">France</option> <option value="OTHER">Other</option> </select> <button type="submit" class="w-full bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-display font-bold py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"> Continue </button>
+    </form>
+   </div>
+  </div><!-- Terms Agreement Modal -->
+  <div id="termsModal" class="hidden fixed inset-0 z-[98] flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 overflow-y-auto">
+   <div class="bg-gradient-to-br from-gray-900 to-black border-2 border-red-600/50 rounded-3xl max-w-2xl w-full p-8 my-8 slide-up shadow-2xl">
+    <div class="text-center mb-6">
+     <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-red-600 to-orange-600 flex items-center justify-center">
+      <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+      </svg>
+     </div>
+     <h2 class="font-display text-3xl font-black text-white mb-2">Terms &amp; Conditions</h2>
+     <p class="text-gray-400 text-sm">Please read and accept to continue</p>
+    </div>
+    <div class="bg-black/60 border border-red-700/30 rounded-xl p-6 max-h-96 overflow-y-auto mb-6 space-y-4 text-sm">
+     <div>
+      <h3 class="text-white font-bold mb-2">Service Agreement</h3>
+      <p class="text-gray-300 leading-relaxed">By using Cgcssworld services, you agree to all terms and conditions. All services are provided "as is" and subject to availability.</p>
+     </div>
+     <div>
+      <h3 class="text-white font-bold mb-2">Payment Policy</h3>
+      <p class="text-gray-300 leading-relaxed">Payment must be made in full before processing. We accept GCash (09567238015 - jomark.p). <strong class="text-red-400">NO REFUNDS</strong> once payment is sent.</p>
+     </div>
+     <div>
+      <h3 class="text-white font-bold mb-2">Delivery Terms</h3>
+      <p class="text-gray-300 leading-relaxed">This is NOT a rush service. Delivery typically takes 1-24 hours depending on order size. Services are <strong class="text-red-400">NOT refillable</strong>.</p>
+     </div>
+     <div>
+      <h3 class="text-white font-bold mb-2">Account Safety</h3>
+      <p class="text-gray-300 leading-relaxed">We will NEVER ask for your password. Your account must be public to receive services. Use at your own risk.</p>
+     </div>
+     <div>
+      <h3 class="text-white font-bold mb-2">Liability Disclaimer</h3>
+      <p class="text-gray-300 leading-relaxed">Cgcssworld is not responsible for any account suspensions, bans, or penalties. We are not affiliated with any social media platforms.</p>
+     </div>
+     <div class="bg-red-900/20 border border-red-600/50 rounded-lg p-4">
+      <p class="text-red-400 font-semibold text-center">By accepting, you confirm you have read and agree to be bound by these terms.</p>
+     </div>
+    </div>
+    <form onsubmit="acceptTerms(event)" class="space-y-4"><label class="flex items-start gap-3 cursor-pointer"> <input type="checkbox" id="agreeCheckbox" required class="mt-1 w-5 h-5 bg-black/60 border-2 border-red-600 rounded focus:ring-2 focus:ring-red-600 cursor-pointer"> <span class="text-gray-300 text-sm">I have read and agree to the Terms &amp; Conditions, Privacy Policy, and No Refund Policy of Cgcssworld.</span> </label> <button type="submit" class="w-full bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-display font-bold py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"> I Agree - Enter Website </button>
+    </form>
+   </div>
+  </div>
   <div id="app-wrapper" class="h-full w-full overflow-auto" style="background: linear-gradient(135deg, #000000 0%, #0d0000 50%, #000000 100%);"><!-- Animated Background Elements -->
    <div class="fixed inset-0 overflow-hidden pointer-events-none opacity-20">
     <div class="absolute top-20 left-10 w-96 h-96 bg-red-900 rounded-full blur-3xl float-animation"></div>
@@ -111,7 +178,7 @@
         <p class="text-red-400 font-semibold text-xs">#OT #BOOSTING</p>
        </div>
       </div><!-- Currency Selector & Profile Button on Right -->
-      <div class="flex items-center gap-2 md:gap-3"><!-- Currency Dropdown --> <select id="currencySelector" onchange="changeCurrency()" class="bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold px-3 md:px-4 py-2 md:py-3 rounded-full cursor-pointer transition-all duration-300 hover:scale-105 shadow-lg border-2 border-white/20 focus:outline-none"> <option value="PHP">₱ PHP</option> <option value="USD">$ USD</option> <option value="EUR">€ EUR</option> <option value="GBP">£ GBP</option> <option value="JPY">¥ JPY</option> <option value="CNY">¥ CNY</option> <option value="KRW">₩ KRW</option> <option value="AUD">$ AUD</option> <option value="CAD">$ CAD</option> <option value="SGD">$ SGD</option> <option value="MYR">RM MYR</option> <option value="THB">฿ THB</option> <option value="IDR">Rp IDR</option> <option value="VND">₫ VND</option> <option value="INR">₹ INR</option> <option value="AED">د.إ AED</option> <option value="SAR">﷼ SAR</option> <option value="BRL">R$ BRL</option> <option value="MXN">$ MXN</option> <option value="RUB">₽ RUB</option> </select> <!-- Profile Button --> <button onclick="toggleProfileModal()" class="flex items-center gap-3 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 px-4 md:px-6 py-2 md:py-3 rounded-full text-white font-bold transition-all duration-300 hover:scale-105 shadow-lg flex-shrink-0"> <img id="profilePicDisplay" src="https://via.placeholder.com/40/ff4444/ffffff?text=👤" alt="Profile" class="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-white object-cover" loading="lazy"> <span id="displayName" class="hidden md:inline">My Profile</span> </button>
+      <div class="flex items-center gap-2 md:gap-3"><!-- Currency Dropdown --> <select id="currencySelector" onchange="changeCurrency()" class="bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold px-3 md:px-4 py-2 md:py-3 rounded-full cursor-pointer transition-all duration-300 hover:scale-105 shadow-lg border-2 border-white/20 focus:outline-none"> <option value="PHP">PHP</option> <option value="USD">USD</option> <option value="EUR">EUR</option> <option value="GBP">GBP</option> <option value="JPY">JPY</option> <option value="CNY">CNY</option> <option value="KRW">KRW</option> <option value="AUD">AUD</option> <option value="CAD">CAD</option> <option value="SGD">SGD</option> <option value="MYR">MYR</option> <option value="THB">THB</option> <option value="IDR">IDR</option> <option value="VND">VND</option> <option value="INR">INR</option> <option value="AED">AED</option> <option value="SAR">SAR</option> <option value="BRL">BRL</option> <option value="MXN">MXN</option> <option value="RUB">RUB</option> </select> <!-- Profile Button --> <button onclick="toggleProfileModal()" class="flex items-center gap-3 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 px-4 md:px-6 py-2 md:py-3 rounded-full text-white font-bold transition-all duration-300 hover:scale-105 shadow-lg flex-shrink-0"> <img id="profilePicDisplay" src="https://via.placeholder.com/40/ff4444/ffffff?text=Profile" alt="Profile" class="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-white object-cover" loading="lazy"> <span id="displayName" class="hidden md:inline">My Profile</span> </button>
       </div>
      </div><!-- Mobile Title (shown below logo on small screens) -->
      <div class="md:hidden text-center mb-6">
@@ -119,7 +186,7 @@
       <p class="text-red-400 font-semibold text-xs">#OT #BOOSTING</p>
      </div><!-- Service Description -->
      <div class="max-w-3xl mx-auto text-center mb-6 bg-gradient-to-r from-red-900/30 via-red-950/30 to-red-900/30 border border-red-600/50 rounded-2xl p-6">
-      <h2 id="tagline" class="font-display text-2xl md:text-3xl font-bold text-white mb-3">(Boosting Service) Super Cheap, Affordable, Fast Seen ⚡🚀</h2>
+      <h2 id="tagline" class="font-display text-2xl md:text-3xl font-bold text-white mb-3">(Boosting Service) Super Cheap, Affordable, Fast Seen</h2>
       <p class="text-gray-300 text-sm leading-relaxed">LF GC NA ACTIVE PA ADD AKO IF DI ACTIVE OUTO LEAVE TAKS</p>
      </div>
     </header><!-- Main Services Grid -->
@@ -130,65 +197,65 @@
         <svg class="w-8 h-8 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
         </svg>
        </div>
-       <h3 class="font-display text-2xl md:text-3xl font-bold text-white">Facebook Service ⚡🚀</h3>
+       <h3 class="font-display text-2xl md:text-3xl font-bold text-white">Facebook Service</h3>
       </div>
       <div class="space-y-4">
        <div class="grid md:grid-cols-3 gap-4">
         <div class="price-item bg-black/60 rounded-xl p-4 border border-red-700/30">
          <p class="text-white font-bold text-lg mb-1">1k Followers</p>
-         <p class="text-orange-400 font-black text-2xl price-amount">20₱</p>
+         <p class="text-orange-400 font-black text-2xl price-amount" data-base-price="20">20</p>
         </div>
         <div class="price-item bg-black/60 rounded-xl p-4 border border-red-700/30">
          <p class="text-white font-bold text-lg mb-1">1k Reacts</p>
-         <p class="text-orange-400 font-black text-2xl price-amount">20₱</p>
+         <p class="text-orange-400 font-black text-2xl price-amount" data-base-price="20">20</p>
         </div>
         <div class="price-item bg-black/60 rounded-xl p-4 border border-red-700/30">
          <p class="text-white font-bold text-lg mb-1">1k Views</p>
-         <p class="text-orange-400 font-black text-2xl price-amount">30₱</p>
+         <p class="text-orange-400 font-black text-2xl price-amount" data-base-price="30">30</p>
         </div>
        </div>
        <div class="bg-black/60 rounded-xl p-4 border border-red-700/30">
-        <p class="text-white font-bold text-lg mb-3">Comments: ⬇⬇⬇</p>
+        <p class="text-white font-bold text-lg mb-3">Comments:</p>
         <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
          <div class="text-center">
           <p class="text-gray-300 text-sm">100</p>
-          <p class="text-orange-400 font-bold price-amount">15₱</p>
+          <p class="text-orange-400 font-bold price-amount" data-base-price="15">15</p>
          </div>
          <div class="text-center">
           <p class="text-gray-300 text-sm">200</p>
-          <p class="text-orange-400 font-bold price-amount">20₱</p>
+          <p class="text-orange-400 font-bold price-amount" data-base-price="20">20</p>
          </div>
          <div class="text-center">
           <p class="text-gray-300 text-sm">300</p>
-          <p class="text-orange-400 font-bold price-amount">30₱</p>
+          <p class="text-orange-400 font-bold price-amount" data-base-price="30">30</p>
          </div>
          <div class="text-center">
           <p class="text-gray-300 text-sm">400</p>
-          <p class="text-orange-400 font-bold price-amount">40₱</p>
+          <p class="text-orange-400 font-bold price-amount" data-base-price="40">40</p>
          </div>
          <div class="text-center">
           <p class="text-gray-300 text-sm">500</p>
-          <p class="text-orange-400 font-bold price-amount">50₱</p>
+          <p class="text-orange-400 font-bold price-amount" data-base-price="50">50</p>
          </div>
          <div class="text-center">
           <p class="text-gray-300 text-sm">600</p>
-          <p class="text-orange-400 font-bold price-amount">60₱</p>
+          <p class="text-orange-400 font-bold price-amount" data-base-price="60">60</p>
          </div>
          <div class="text-center">
           <p class="text-gray-300 text-sm">700</p>
-          <p class="text-orange-400 font-bold price-amount">70₱</p>
+          <p class="text-orange-400 font-bold price-amount" data-base-price="70">70</p>
          </div>
          <div class="text-center">
           <p class="text-gray-300 text-sm">800</p>
-          <p class="text-orange-400 font-bold price-amount">80₱</p>
+          <p class="text-orange-400 font-bold price-amount" data-base-price="80">80</p>
          </div>
          <div class="text-center">
           <p class="text-gray-300 text-sm">900</p>
-          <p class="text-orange-400 font-bold price-amount">90₱</p>
+          <p class="text-orange-400 font-bold price-amount" data-base-price="90">90</p>
          </div>
          <div class="text-center">
           <p class="text-gray-300 text-sm">1000</p>
-          <p class="text-orange-400 font-bold price-amount">100₱</p>
+          <p class="text-orange-400 font-bold price-amount" data-base-price="100">100</p>
          </div>
         </div>
        </div>
@@ -200,42 +267,42 @@
         <svg class="w-8 h-8 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
         </svg>
        </div>
-       <h3 class="font-display text-2xl md:text-3xl font-bold text-white">TikTok Service ⚡🚀</h3>
+       <h3 class="font-display text-2xl md:text-3xl font-bold text-white">TikTok Service</h3>
       </div>
       <div class="space-y-4">
        <div class="price-item bg-black/60 rounded-xl p-4 border border-red-700/30 max-w-md">
         <p class="text-white font-bold text-lg mb-1">1k Likes</p>
-        <p class="text-orange-400 font-black text-2xl price-amount">30₱</p>
+        <p class="text-orange-400 font-black text-2xl price-amount" data-base-price="30">30</p>
        </div>
        <div class="bg-black/60 rounded-xl p-4 border border-red-700/30 max-w-md">
-        <p class="text-white font-bold text-lg mb-3">Views: ⬇⬇⬇</p>
+        <p class="text-white font-bold text-lg mb-3">Views:</p>
         <div class="text-center">
          <p class="text-gray-300 text-sm mb-1">100K</p>
-         <p class="text-orange-400 font-bold text-xl price-amount">90₱</p>
+         <p class="text-orange-400 font-bold text-xl price-amount" data-base-price="90">90</p>
         </div>
        </div>
       </div>
      </section><!-- Instagram Services -->
      <section class="service-card bg-gradient-to-br from-black/95 to-gray-950/95 backdrop-blur-sm border border-red-700/40 rounded-3xl p-6 md:p-8 slide-up" style="animation-delay: 0.3s;">
-      <div class="flex items-center gap-3 mb-6">
+     div class="flex items-center gap-3 mb-6">
        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
         <svg class="w-8 h-8 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
         </svg>
        </div>
-       <h3 class="font-display text-2xl md:text-3xl font-bold text-white">Instagram Service ⚡🚀</h3>
+       <h3 class="font-display text-2xl md:text-3xl font-bold text-white">Instagram Service</h3>
       </div>
       <div class="grid md:grid-cols-3 gap-4">
        <div class="price-item bg-black/60 rounded-xl p-4 border border-red-700/30">
         <p class="text-white font-bold text-lg mb-1">1k Followers</p>
-        <p class="text-orange-400 font-black text-2xl">80₱</p>
+        <p class="text-orange-400 font-black text-2xl price-amount" data-base-price="80">80</p>
        </div>
        <div class="price-item bg-black/60 rounded-xl p-4 border border-red-700/30">
         <p class="text-white font-bold text-lg mb-1">1k Likes</p>
-        <p class="text-orange-400 font-black text-2xl">35₱</p>
+        <p class="text-orange-400 font-black text-2xl price-amount" data-base-price="35">35</p>
        </div>
        <div class="price-item bg-black/60 rounded-xl p-4 border border-red-700/30">
         <p class="text-white font-bold text-lg mb-1">1k Views</p>
-        <p class="text-orange-400 font-black text-2xl">30₱</p>
+        <p class="text-orange-400 font-black text-2xl price-amount" data-base-price="30">30</p>
        </div>
       </div>
      </section><!-- All Platforms Section -->
@@ -246,18 +313,18 @@
      </section><!-- Policy Section -->
      <section class="bg-gradient-to-br from-red-900/50 to-orange-900/50 backdrop-blur-sm border-2 border-red-600 rounded-3xl p-6 md:p-8 slide-up" style="animation-delay: 0.5s;">
       <div class="text-center space-y-4">
-       <h3 class="font-display text-2xl font-black text-white"> IMPORTANT POLICIES ⚠️</h3>
+       <h3 class="font-display text-2xl font-black text-white">IMPORTANT POLICIES</h3>
        <div class="space-y-3">
         <p class="text-white font-bold text-lg">Payment First Policy</p>
-        <p class="text-white font-bold text-lg">No Refund Once Sent Payment ⚡🚀</p>
+        <p class="text-white font-bold text-lg">No Refund Once Sent Payment</p>
         <div id="policy-note" class="bg-black/30 rounded-xl p-5 border border-red-600/50 mt-4">
-         <p class="text-white font-semibold">Note: Not For Rush Order, Para lang to Sa Mga Marunong mag Hintay, Not Refillable ⚡🚀</p>
+         <p class="text-white font-semibold">Note: Not For Rush Order, Para lang to Sa Mga Marunong mag Hintay, Not Refillable</p>
         </div>
        </div>
       </div>
      </section><!-- FAQ Section -->
      <section class="bg-gradient-to-br from-black/95 to-gray-950/95 backdrop-blur-sm border border-red-700/40 rounded-3xl p-6 md:p-8 slide-up" style="animation-delay: 0.45s;">
-      <h3 class="font-display text-2xl font-bold text-white mb-6 text-center">❓ Frequently Asked Questions</h3>
+      <h3 class="font-display text-2xl font-bold text-white mb-6 text-center">Frequently Asked Questions</h3>
       <div class="space-y-4 max-w-3xl mx-auto">
        <div class="faq-item bg-black/60 rounded-xl border border-red-700/30 overflow-hidden"><button class="faq-question w-full text-left p-5 flex items-center justify-between hover:bg-red-900/20 transition-colors"> <span class="text-white font-bold text-lg">How long does delivery take?</span> <span class="faq-icon text-red-400 text-2xl">+</span> </button>
         <div class="faq-answer hidden p-5 pt-0 text-gray-300">
@@ -292,7 +359,7 @@
       </div>
      </section><!-- Payment Methods Section -->
      <section class="bg-gradient-to-br from-black/95 to-gray-950/95 backdrop-blur-sm border border-red-700/40 rounded-3xl p-6 md:p-8 slide-up" style="animation-delay: 0.5s;">
-      <h3 class="font-display text-2xl font-bold text-white mb-6 text-center">💳 Payment Method</h3>
+      <h3 class="font-display text-2xl font-bold text-white mb-6 text-center">Payment Method</h3>
       <div class="flex flex-col items-center gap-6">
        <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-6 inline-flex items-center gap-4 border-2 border-blue-400"><img src="https://i.postimg.cc/RZVmvLjG/images-(1)-(3).png" alt="GCash Logo" class="h-16 w-auto object-contain" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#007DFF'; this.alt='GCash';">
         <div>
@@ -304,17 +371,115 @@
         <div class="text-center space-y-3">
          <p class="text-gray-400 text-sm font-semibold">Send Payment To:</p>
          <div class="bg-blue-900/30 rounded-xl p-4 border border-blue-500/50">
-          <p class="text-white font-display font-bold text-xl mb-2">📱 09567238015</p>
+          <p class="text-white font-display font-bold text-xl mb-2">09567238015</p>
           <p class="text-blue-300 font-semibold text-lg">jomark.p</p>
          </div>
          <p class="text-gray-400 text-xs mt-3">Make sure to send payment to this number before placing your order</p>
         </div>
        </div>
       </div>
+     </section><!-- Terms and Conditions Section -->
+     <section class="bg-gradient-to-br from-black/95 to-gray-950/95 backdrop-blur-sm border border-red-700/40 rounded-3xl p-6 md:p-8 slide-up" style="animation-delay: 0.55s;">
+      <div class="text-center mb-6">
+       <h3 class="font-display text-2xl md:text-3xl font-bold text-white mb-2">Terms and Conditions</h3>
+       <p class="text-gray-400 text-sm">Please read carefully before placing an order</p>
+      </div>
+      <div class="max-w-4xl mx-auto space-y-6"><!-- Service Agreement -->
+       <div class="bg-black/60 rounded-xl p-6 border border-red-700/30">
+        <h4 class="text-white font-bold text-lg mb-3 flex items-center gap-2"><span class="text-red-400">1.</span> Service Agreement</h4>
+        <div class="text-gray-300 text-sm space-y-2 leading-relaxed">
+         <p>• By placing an order with Cgcssworld, you agree to all terms and conditions listed on this page.</p>
+         <p>• All services are provided "as is" and are subject to availability.</p>
+         <p>• We reserve the right to refuse service to anyone for any reason at any time.</p>
+        </div>
+       </div><!-- Payment Terms -->
+       <div class="bg-black/60 rounded-xl p-6 border border-red-700/30">
+        <h4 class="text-white font-bold text-lg mb-3 flex items-center gap-2"><span class="text-red-400">2.</span> Payment Terms</h4>
+        <div class="text-gray-300 text-sm space-y-2 leading-relaxed">
+         <p>• <strong class="text-white">Payment must be made in full before order processing begins.</strong></p>
+         <p>• We accept GCash as our primary payment method (09567238015 - jomark.p).</p>
+         <p>• All prices are listed in Philippine Peso (PHP) unless otherwise stated.</p>
+         <p>• Payment confirmation screenshots may be required for verification.</p>
+        </div>
+       </div><!-- No Refund Policy -->
+       <div class="bg-black/60 rounded-xl p-6 border border-red-700/30">
+        <h4 class="text-white font-bold text-lg mb-3 flex items-center gap-2"><span class="text-red-400">3.</span> No Refund Policy</h4>
+        <div class="text-gray-300 text-sm space-y-2 leading-relaxed">
+         <p>• <strong class="text-red-500">NO REFUNDS will be issued once payment has been sent.</strong></p>
+         <p>• Please double-check your order details (links, usernames, quantities) before payment.</p>
+         <p>• Incorrect information provided by customers will not qualify for refunds.</p>
+         <p>• We are not responsible for user errors in order submission.</p>
+        </div>
+       </div><!-- Delivery Terms -->
+       <div class="bg-black/60 rounded-xl p-6 border border-red-700/30">
+        <h4 class="text-white font-bold text-lg mb-3 flex items-center gap-2"><span class="text-red-400">4.</span> Delivery &amp; Processing</h4>
+        <div class="text-gray-300 text-sm space-y-2 leading-relaxed">
+         <p>• Delivery times vary by service type and quantity ordered (typically 1-24 hours).</p>
+         <p>• <strong class="text-white">This is NOT a rush service</strong> - orders are processed in order received.</p>
+         <p>• Delivery may be delayed due to high demand or technical issues beyond our control.</p>
+         <p>• We will notify you when your order is complete via Facebook Messenger.</p>
+        </div>
+       </div><!-- Service Quality -->
+       <div class="bg-black/60 rounded-xl p-6 border border-red-700/30">
+        <h4 class="text-white font-bold text-lg mb-3 flex items-center gap-2"><span class="text-red-400">5.</span> Service Quality &amp; Guarantees</h4>
+        <div class="text-gray-300 text-sm space-y-2 leading-relaxed">
+         <p>• <strong class="text-white">Services are NOT refillable</strong> - natural drops may occur over time.</p>
+         <p>• We do not guarantee permanent results or specific retention rates.</p>
+         <p>• Account security is your responsibility - never share your password.</p>
+         <p>• We are not liable for any account actions taken by social media platforms.</p>
+        </div>
+       </div><!-- Account Safety -->
+       <div class="bg-black/60 rounded-xl p-6 border border-red-700/30">
+        <h4 class="text-white font-bold text-lg mb-3 flex items-center gap-2"><span class="text-red-400">6.</span> Account Safety &amp; Privacy</h4>
+        <div class="text-gray-300 text-sm space-y-2 leading-relaxed">
+         <p>• We will NEVER ask for your password or sensitive account information.</p>
+         <p>• Your account must be public to receive services (followers, likes, etc.).</p>
+         <p>• We use safe, gradual delivery methods to protect your account.</p>
+         <p>• Customer information is kept confidential and never shared with third parties.</p>
+        </div>
+       </div><!-- Prohibited Uses -->
+       <div class="bg-black/60 rounded-xl p-6 border border-red-700/30">
+        <h4 class="text-white font-bold text-lg mb-3 flex items-center gap-2"><span class="text-red-400">7.</span> Prohibited Uses</h4>
+        <div class="text-gray-300 text-sm space-y-2 leading-relaxed">
+         <p>• Services may not be used for illegal, fraudulent, or harmful purposes.</p>
+         <p>• We reserve the right to cancel orders that violate platform terms of service.</p>
+         <p>• Abusive or threatening behavior toward our staff will result in service termination.</p>
+        </div>
+       </div><!-- Liability Disclaimer -->
+       <div class="bg-black/60 rounded-xl p-6 border border-red-700/30">
+        <h4 class="text-white font-bold text-lg mb-3 flex items-center gap-2"><span class="text-red-400">8.</span> Liability Disclaimer</h4>
+        <div class="text-gray-300 text-sm space-y-2 leading-relaxed">
+         <p>• Cgcssworld is not responsible for any account suspensions, bans, or penalties.</p>
+         <p>• Use of our services is at your own risk.</p>
+         <p>• We are not affiliated with Facebook, Instagram, TikTok, or any social media platform.</p>
+         <p>• We make no guarantees about specific outcomes or results.</p>
+        </div>
+       </div><!-- Changes to Terms -->
+       <div class="bg-black/60 rounded-xl p-6 border border-red-700/30">
+        <h4 class="text-white font-bold text-lg mb-3 flex items-center gap-2"><span class="text-red-400">9.</span> Changes to Terms</h4>
+        <div class="text-gray-300 text-sm space-y-2 leading-relaxed">
+         <p>• We reserve the right to modify these terms at any time without prior notice.</p>
+         <p>• Continued use of our services constitutes acceptance of updated terms.</p>
+         <p>• It is your responsibility to review terms before placing orders.</p>
+        </div>
+       </div><!-- Contact Information -->
+       <div class="bg-black/60 rounded-xl p-6 border border-red-700/30">
+        <h4 class="text-white font-bold text-lg mb-3 flex items-center gap-2"><span class="text-red-400">10.</span> Contact &amp; Support</h4>
+        <div class="text-gray-300 text-sm space-y-2 leading-relaxed">
+         <p>• For questions or support, contact us via Facebook: <a href="https://www.facebook.com/khriztan.fritz" target="_blank" rel="noopener noreferrer" class="text-red-400 hover:text-red-300 underline">@khriztan.fritz</a></p>
+         <p>• We aim to respond to all inquiries within 24 hours.</p>
+         <p>• Payment: GCash 09567238015 (jomark.p)</p>
+        </div>
+       </div><!-- Agreement Confirmation -->
+       <div class="bg-gradient-to-r from-red-900/50 to-orange-900/50 rounded-xl p-6 border-2 border-red-600/50 text-center">
+        <p class="text-white font-bold text-lg mb-2">By Placing an Order</p>
+        <p class="text-gray-300 text-sm">You confirm that you have read, understood, and agree to be bound by these Terms and Conditions.</p>
+       </div>
+      </div>
      </section><!-- Contact Section -->
      <section class="text-center slide-up" style="animation-delay: 0.6s;">
       <div class="bg-gradient-to-br from-black/95 to-gray-950/95 backdrop-blur-sm border border-red-700/40 rounded-3xl p-8 max-w-2xl mx-auto">
-       <h3 class="font-display text-2xl font-bold text-white mb-4">📱 Contact Owner to Order</h3>
+       <h3 class="font-display text-2xl font-bold text-white mb-4">Contact Owner to Order</h3>
        <p class="text-gray-300 mb-6">Click the link below to message us on Facebook</p><a href="https://www.facebook.com/khriztan.fritz" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 gradient-bg pulse-glow px-8 py-4 rounded-xl text-white font-display font-bold text-lg transition-transform hover:scale-105 relative overflow-hidden no-underline">
         <div class="shine-effect absolute inset-0"></div>
         <svg class="w-6 h-6 relative z-10" fill="currentColor" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
@@ -332,11 +497,11 @@
   <div id="profileModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
    <div class="bg-gradient-to-br from-gray-900 to-black border-2 border-red-600/50 rounded-3xl max-w-md w-full p-8 relative slide-up shadow-2xl"><!-- Close Button --> <button onclick="toggleProfileModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-3xl transition-colors">×</button> <!-- Modal Header -->
     <div class="text-center mb-6">
-     <h2 class="font-display text-3xl font-black text-white mb-2">👤 My Profile</h2>
+     <h2 class="font-display text-3xl font-black text-white mb-2">My Profile</h2>
      <p class="text-gray-400 text-sm">Manage your account information</p>
     </div><!-- Profile Picture Section -->
     <div class="flex flex-col items-center mb-6">
-     <div class="relative mb-4"><img id="profilePicPreview" src="https://via.placeholder.com/120/ff4444/ffffff?text=👤" alt="Profile Preview" class="w-32 h-32 rounded-full border-4 border-red-600 object-cover shadow-lg"> <label for="profilePicInput" class="absolute bottom-0 right-0 bg-red-600 hover:bg-red-700 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer transition-colors shadow-lg">
+     <div class="relative mb-4"><img id="profilePicPreview" src="https://via.placeholder.com/120/ff4444/ffffff?text=Profile" alt="Profile Preview" class="w-32 h-32 rounded-full border-4 border-red-600 object-cover shadow-lg"> <label for="profilePicInput" class="absolute bottom-0 right-0 bg-red-600 hover:bg-red-700 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer transition-colors shadow-lg">
        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
        </svg></label> <input type="file" id="profilePicInput" accept="image/*" onchange="handleProfilePicUpload(event)" class="hidden">
      </div>
@@ -352,72 +517,129 @@
       <p id="displayEmail" class="text-white font-semibold">Not set</p>
      </div><!-- Success Message -->
      <div id="successMessage" class="hidden bg-green-600/20 border border-green-600 rounded-xl p-4 text-center">
-      <p class="text-green-400 font-semibold">✓ Profile saved successfully!</p>
+      <p class="text-green-400 font-semibold">Profile saved successfully!</p>
      </div><!-- Save Button --> <button type="submit" class="w-full bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-display font-bold py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"> Save Profile </button>
     </form>
    </div>
   </div>
   <script>
+    // Entry Screen Flow Management
+    let loadingProgress = 0;
+    let hasCompletedEntry = false;
+    
+    // Check if user has already completed entry screens
+    window.addEventListener('DOMContentLoaded', function() {
+      const hasAcceptedTerms = localStorage.getItem('termsAccepted');
+      
+      if (hasAcceptedTerms === 'true') {
+        // Skip entry screens if already completed
+        hideAllEntryScreens();
+      } else {
+        // Start entry sequence
+        startLoadingSequence();
+      }
+    });
+    
+    function startLoadingSequence() {
+      const loadingBar = document.getElementById('loadingBar');
+      const loadingText = document.getElementById('loadingText');
+      
+      const interval = setInterval(() => {
+        loadingProgress += 2;
+        loadingBar.style.width = loadingProgress + '%';
+        loadingText.textContent = 'Loading... ' + loadingProgress + '%';
+        
+        if (loadingProgress >= 100) {
+          clearInterval(interval);
+          setTimeout(() => {
+            document.getElementById('welcomeSplash').classList.add('hidden');
+            document.getElementById('countryModal').classList.remove('hidden');
+          }, 500);
+        }
+      }, 30);
+    }
+    
+    function submitCountry(event) {
+      event.preventDefault();
+      const country = document.getElementById('countrySelect').value;
+      
+      if (country) {
+        localStorage.setItem('userCountry', country);
+        document.getElementById('countryModal').classList.add('hidden');
+        document.getElementById('termsModal').classList.remove('hidden');
+      }
+    }
+    
+    function acceptTerms(event) {
+      event.preventDefault();
+      const checkbox = document.getElementById('agreeCheckbox');
+      
+      if (checkbox.checked) {
+        localStorage.setItem('termsAccepted', 'true');
+        hideAllEntryScreens();
+      }
+    }
+    
+    function hideAllEntryScreens() {
+      document.getElementById('welcomeSplash').classList.add('hidden');
+      document.getElementById('countryModal').classList.add('hidden');
+      document.getElementById('termsModal').classList.add('hidden');
+      hasCompletedEntry = true;
+    }
+    
     // Currency conversion rates (based on PHP)
     const exchangeRates = {
       PHP: 1,
-      USD: 0.018,   // US Dollar
-      EUR: 0.016,   // Euro
-      GBP: 0.014,   // British Pound
-      JPY: 2.75,    // Japanese Yen
-      CNY: 0.13,    // Chinese Yuan
-      KRW: 24.5,    // South Korean Won
-      AUD: 0.028,   // Australian Dollar
-      CAD: 0.025,   // Canadian Dollar
-      SGD: 0.024,   // Singapore Dollar
-      MYR: 0.08,    // Malaysian Ringgit
-      THB: 0.62,    // Thai Baht
-      IDR: 288,     // Indonesian Rupiah
-      VND: 455,     // Vietnamese Dong
-      INR: 1.52,    // Indian Rupee
-      AED: 0.066,   // UAE Dirham
-      SAR: 0.068,   // Saudi Riyal
-      BRL: 0.11,    // Brazilian Real
-      MXN: 0.36,    // Mexican Peso
-      RUB: 1.82     // Russian Ruble
+      USD: 0.018,
+      EUR: 0.016,
+      GBP: 0.014,
+      JPY: 2.75,
+      CNY: 0.13,
+      KRW: 24.5,
+      AUD: 0.028,
+      CAD: 0.025,
+      SGD: 0.024,
+      MYR: 0.08,
+      THB: 0.62,
+      IDR: 288,
+      VND: 455,
+      INR: 1.52,
+      AED: 0.066,
+      SAR: 0.068,
+      BRL: 0.11,
+      MXN: 0.36,
+      RUB: 1.82
     };
     
     const currencySymbols = {
-      PHP: '₱',
-      USD: '$',
-      EUR: '€',
-      GBP: '£',
-      JPY: '¥',
-      CNY: '¥',
-      KRW: '₩',
-      AUD: '$',
-      CAD: '$',
-      SGD: '$',
-      MYR: 'RM',
-      THB: '฿',
-      IDR: 'Rp',
-      VND: '₫',
-      INR: '₹',
-      AED: 'د.إ',
-      SAR: '﷼',
-      BRL: 'R$',
-      MXN: '$',
-      RUB: '₽'
+      PHP: ' PHP',
+      USD: ' USD',
+      EUR: ' EUR',
+      GBP: ' GBP',
+      JPY: ' JPY',
+      CNY: ' CNY',
+      KRW: ' KRW',
+      AUD: ' AUD',
+      CAD: ' CAD',
+      SGD: ' SGD',
+      MYR: ' MYR',
+      THB: ' THB',
+      IDR: ' IDR',
+      VND: ' VND',
+      INR: ' INR',
+      AED: ' AED',
+      SAR: ' SAR',
+      BRL: ' BRL',
+      MXN: ' MXN',
+      RUB: ' RUB'
     };
     
     let currentCurrency = 'PHP';
     
-    // Original prices in PHP
-    const originalPrices = {};
-    
     function changeCurrency() {
       const selectedCurrency = document.getElementById('currencySelector').value;
       currentCurrency = selectedCurrency;
-      
-      // Save preference
       localStorage.setItem('preferredCurrency', selectedCurrency);
-      
-      // Update all prices on the page
       updateAllPrices();
     }
     
@@ -425,50 +647,25 @@
       const priceElements = document.querySelectorAll('.price-amount');
       
       priceElements.forEach(element => {
-        const priceId = element.getAttribute('data-price-id');
-        const originalPrice = parseFloat(originalPrices[priceId]);
+        const basePrice = parseFloat(element.getAttribute('data-base-price'));
         
-        if (!isNaN(originalPrice)) {
-          const convertedPrice = originalPrice * exchangeRates[currentCurrency];
+        if (!isNaN(basePrice)) {
+          const convertedPrice = basePrice * exchangeRates[currentCurrency];
           const symbol = currencySymbols[currentCurrency];
           
-          // Format based on currency (some currencies don't use decimals)
           let formattedPrice;
           if (currentCurrency === 'PHP' || currentCurrency === 'JPY' || currentCurrency === 'KRW' || currentCurrency === 'IDR' || currentCurrency === 'VND') {
-            // No decimals for these currencies
             formattedPrice = Math.round(convertedPrice).toLocaleString();
           } else {
-            // 2 decimals for others
             formattedPrice = convertedPrice.toFixed(2);
           }
           
-          element.textContent = `${formattedPrice}${symbol}`;
+          element.textContent = formattedPrice + symbol;
         }
       });
     }
     
-    function initializePrices() {
-      const priceElements = document.querySelectorAll('.price-amount');
-      
-      priceElements.forEach((element, index) => {
-        const priceId = `price-${index}`;
-        element.setAttribute('data-price-id', priceId);
-        
-        // Extract original PHP price from text content
-        const priceText = element.textContent.replace(/[^\d]/g, '');
-        originalPrices[priceId] = parseFloat(priceText);
-      });
-      
-      // Load saved currency preference
-      const savedCurrency = localStorage.getItem('preferredCurrency');
-      if (savedCurrency) {
-        document.getElementById('currencySelector').value = savedCurrency;
-        currentCurrency = savedCurrency;
-        updateAllPrices();
-      }
-    }
-    
-    // Prevent image theft - disable right-click and drag
+    // Prevent image theft
     document.addEventListener('contextmenu', function(e) {
       if (e.target.tagName === 'IMG') {
         e.preventDefault();
@@ -485,8 +682,12 @@
     
     // FAQ Toggle Functionality
     document.addEventListener('DOMContentLoaded', function() {
-      // Initialize prices
-      initializePrices();
+      const savedCurrency = localStorage.getItem('preferredCurrency');
+      if (savedCurrency) {
+        document.getElementById('currencySelector').value = savedCurrency;
+        currentCurrency = savedCurrency;
+        updateAllPrices();
+      }
       
       const faqItems = document.querySelectorAll('.faq-item');
       
@@ -508,7 +709,6 @@
         });
       });
       
-      // Load saved profile data
       loadProfile();
     });
     
@@ -564,7 +764,6 @@
         document.getElementById('displayName').textContent = name;
         document.getElementById('displayEmail').textContent = email;
         
-        // Show success message
         const successMsg = document.getElementById('successMessage');
         successMsg.classList.remove('hidden');
         setTimeout(() => {
@@ -574,6 +773,6 @@
       }
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c36d93ac64b4559',t:'MTc2OTMzNDQ0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c3728d2a213b495',t:'MTc2OTMzNzcwMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
  </html>
  
